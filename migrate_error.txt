@@ -1,0 +1,22 @@
+﻿
+   Illuminate\Database\QueryException 
+
+  SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: bts_blog, SQL: select exists (select 1 from information_schema.tables where table_schema = schema() and table_name = 'migrations' and table_type in ('BASE TABLE', 'SYSTEM VERSIONED')) as `exists`)
+
+  at vendor\laravel\framework\src\Illuminate\Database\Connection.php:831
+    827Ôûò             $exceptionType = $this->isUniqueConstraintError($e)
+    828Ôûò                 ? UniqueConstraintViolationException::class
+    829Ôûò                 : QueryException::class;
+    830Ôûò 
+  Ô×£ 831Ôûò             throw new $exceptionType(
+    832Ôûò                 $this->getNameWithReadWriteType(),
+    833Ôûò                 $query,
+    834Ôûò                 $this->prepareBindings($bindings),
+    835Ôûò                 $e,
+
+  1   vendor\laravel\framework\src\Illuminate\Database\Connectors\Connector.php:66
+      PDOException::("SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)")
+
+  2   vendor\laravel\framework\src\Illuminate\Database\Connectors\Connector.php:66
+      PDO::__construct("mysql:host=127.0.0.1;port=3306;dbname=bts_blog", "root", Object(SensitiveParameterValue), [])
+
